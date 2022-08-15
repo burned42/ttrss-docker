@@ -30,8 +30,8 @@ RUN echo 'Require all denied' > /var/www/html/.git/.htaccess
 
 RUN git clone https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git /var/www/html/plugins.local/googlereaderkeys/
 
-RUN chown -R www-data:www-data /var/www/html/
 RUN mkdir /var/www/html/cache/starred-images /var/www/html/cache/starred-images.status-files
+RUN chown -R www-data:www-data /var/www/html/
 RUN chmod 777 /var/www/html/cache \
               /var/www/html/cache/export \
               /var/www/html/cache/images \
