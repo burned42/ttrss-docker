@@ -25,7 +25,7 @@ RUN echo '*/5 * * * * php /var/www/html/update.php --feeds' > /var/spool/cron/cr
 COPY cron.sh /
 RUN chmod 755 /cron.sh
 
-COPY src/ /var/www/html/
+COPY ttrss/ /var/www/html/
 RUN echo 'Require all denied' > /var/www/html/.git/.htaccess
 
 RUN git clone https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git /var/www/html/plugins.local/googlereaderkeys/

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: git clone https://git.tt-rss.org/fox/tt-rss.git/ src
+      - run: git clone https://git.tt-rss.org/fox/tt-rss.git/ ttrss
       - run: ls -l
       - uses: docker/login-action@v2
         with:
