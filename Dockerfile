@@ -34,11 +34,11 @@ RUN mkdir /var/www/html/cache/starred-images /var/www/html/cache/starred-images.
 RUN chown -R www-data:www-data /var/www/html/
 RUN chmod 777 /var/www/html/cache \
               /var/www/html/cache/export \
+              /var/www/html/cache/feed-icons \
               /var/www/html/cache/images \
               /var/www/html/cache/starred-images \
               /var/www/html/cache/starred-images.status-files \
               /var/www/html/cache/upload \
-              /var/www/html/feed-icons \
               /var/www/html/lock
 
-VOLUME /var/www/html/feed-icons
+VOLUME /var/www/html/cache/feed-icons
