@@ -39,7 +39,7 @@ RUN git clone https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git /var/www/htm
 
 RUN mkdir /var/www/html/cache/feed-icons \
     /var/www/html/cache/starred-images \
-    /var/www/html/cache/starred-images.status-files \
+    /var/www/html/cache/starred-images.status-files
     
 RUN chown -R www-data:www-data /var/www/html/
 RUN chmod 777 /var/www/html/cache \
