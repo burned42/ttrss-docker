@@ -1,5 +1,12 @@
 FROM php:8.1-apache
 
+ENV TTRSS_PHP_EXECUTABLE=/usr/local/bin/php
+ENV TTRSS_PLUGINS="auth_internal, cache_starred_images"
+ENV TTRSS_DAEMON_UPDATE_LOGIN_LIMIT=0
+ENV TTRSS_DAEMON_UNSUCCESSFUL_DAYS_LIMIT=0
+ENV TTRSS_SESSION_COOKIE_LIFETIME=2592000
+ENV TZ=Europe/Berlin
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     libfreetype6-dev \
