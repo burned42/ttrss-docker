@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 ENV TTRSS_PHP_EXECUTABLE=/usr/local/bin/php
 ENV TTRSS_PLUGINS="auth_internal, cache_starred_images"
