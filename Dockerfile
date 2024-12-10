@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 ENV TTRSS_PHP_EXECUTABLE=/usr/local/bin/php
 ENV TTRSS_PLUGINS="auth_internal, cache_starred_images"
@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN update-ca-certificates
+
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
     && docker-php-ext-install dom exif gd intl opcache pcntl pgsql pdo_pgsql zip
 
@@ -40,7 +42,7 @@ RUN git clone https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git /var/www/htm
 RUN mkdir /var/www/html/cache/feed-icons \
     /var/www/html/cache/starred-images \
     /var/www/html/cache/starred-images.status-files
-    
+
 RUN chown -R www-data:www-data /var/www/html/
 RUN chmod 777 /var/www/html/cache \
               /var/www/html/cache/export \
