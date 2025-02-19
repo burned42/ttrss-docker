@@ -26,7 +26,8 @@ RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm -
     && docker-php-ext-install dom exif gd intl opcache pcntl pgsql pdo_pgsql zip
 
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-RUN echo 'date.timezone = "Europe/Berlin"' > /usr/local/etc/php/conf.d/timezone.ini
+RUN echo 'date.timezone="Europe/Berlin"' > /usr/local/etc/php/conf.d/timezone.ini \
+    && echo 'curl.cainfo="/etc/ssl/certs/ca-certificates.crt"' > /usr/local/etc/php/conf.d/curl_cainfo.ini
 
 RUN apt-get update && apt-get install -y --no-install-recommends busybox-static
 RUN mkdir -p /var/spool/cron/crontabs
