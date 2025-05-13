@@ -20,7 +20,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN update-ca-certificates
+# letsencrypt R11 cert (required for planet.debianforum.de)
+ADD https://de.ssl-tools.net/certificates/696db3af0dffc17e65c6a20d925c5a7bd24dec7e.pem /usr/local/share/ca-certificates/letsencryptR11.pem
+RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptR11.pem -inform PEM -out /usr/local/share/ca-certificates/letsencryptR11.crt \
+    && update-ca-certificates
 
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
     && docker-php-ext-install dom exif gd intl opcache pcntl pgsql pdo_pgsql zip
