@@ -48,13 +48,6 @@ RUN mkdir /var/www/html/cache/feed-icons \
     /var/www/html/cache/starred-images.status-files
 
 RUN chown -R www-data:www-data /var/www/html/
-RUN chmod 777 /var/www/html/cache \
-              /var/www/html/cache/export \
-              /var/www/html/cache/feed-icons \
-              /var/www/html/cache/images \
-              /var/www/html/cache/starred-images \
-              /var/www/html/cache/starred-images.status-files \
-              /var/www/html/cache/upload \
-              /var/www/html/lock
+RUN for d in cache lock feed-icons; do chmod -R u=rwX,g=rX,o=rX /var/www/html/$d; done
 
 VOLUME /var/www/html/cache/feed-icons
