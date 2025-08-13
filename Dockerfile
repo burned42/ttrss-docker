@@ -10,6 +10,7 @@ ENV TZ=Europe/Berlin
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     libfreetype6-dev \
+    libicu-dev \
     libjpeg-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
