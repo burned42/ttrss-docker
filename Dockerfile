@@ -27,7 +27,7 @@ RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptR11.pem -inform
     && update-ca-certificates
 
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
-    && docker-php-ext-install dom exif gd intl opcache pcntl pgsql pdo_pgsql zip
+    && docker-php-ext-install exif gd intl opcache pcntl pgsql pdo_pgsql zip
 
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN echo 'date.timezone="Europe/Berlin"' > /usr/local/etc/php/conf.d/timezone.ini \
