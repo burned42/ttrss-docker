@@ -42,7 +42,7 @@ RUN chmod 755 /cron.sh
 COPY ttrss/ /var/www/html/
 RUN echo 'Require all denied' > /var/www/html/.git/.htaccess
 
-RUN git clone https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git /var/www/html/plugins.local/googlereaderkeys/
+RUN git clone https://github.com/tt-rss/tt-rss-plugin-googlereaderkeys.git /var/www/html/plugins.local/googlereaderkeys/
 
 RUN mkdir /var/www/html/cache/feed-icons \
     /var/www/html/cache/starred-images \
