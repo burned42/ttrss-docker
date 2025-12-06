@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.5-apache
 
 ENV TTRSS_PHP_EXECUTABLE=/usr/local/bin/php
 ENV TTRSS_PLUGINS="auth_internal, cache_starred_images"
@@ -27,7 +27,7 @@ RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptR13.pem -inform
     && update-ca-certificates
 
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
-    && docker-php-ext-install exif gd intl opcache pcntl pgsql pdo_pgsql zip
+    && docker-php-ext-install exif gd intl pcntl pgsql pdo_pgsql zip
 
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN echo 'date.timezone="Europe/Berlin"' > /usr/local/etc/php/conf.d/timezone.ini \
