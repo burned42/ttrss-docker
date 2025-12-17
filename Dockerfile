@@ -21,9 +21,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# letsencrypt R11 cert (required for planet.debianforum.de)
-ADD https://letsencrypt.org/certs/2024/r13.pem /usr/local/share/ca-certificates/letsencryptR13.pem
-RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptR13.pem -inform PEM -out /usr/local/share/ca-certificates/letsencryptR13.crt \
+# letsencrypt certs (required for planet.debianforum.de)
+ADD https://letsencrypt.org/certs/isrgrootx1.pem /usr/local/share/ca-certificates/letsencryptX1.pem
+RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptX1.pem -inform PEM -out /usr/local/share/ca-certificates/letsencryptX1.crt
     && update-ca-certificates
 
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
