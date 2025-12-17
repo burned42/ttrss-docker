@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # letsencrypt certs (required for planet.debianforum.de)
 ADD https://letsencrypt.org/certs/isrgrootx1.pem /usr/local/share/ca-certificates/letsencryptX1.pem
-RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptX1.pem -inform PEM -out /usr/local/share/ca-certificates/letsencryptX1.crt
+RUN openssl x509 -in /usr/local/share/ca-certificates/letsencryptX1.pem -inform PEM -out /usr/local/share/ca-certificates/letsencryptX1.crt \
     && update-ca-certificates
 
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype \
