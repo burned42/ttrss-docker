@@ -51,6 +51,6 @@ RUN mkdir /var/www/html/cache/feed-icons \
     /var/www/html/cache/starred-images.status-files
 
 RUN chown -R www-data:www-data /var/www/html/
-RUN for d in cache lock feed-icons; do chmod -R u=rwX,g=rX,o=rX /var/www/html/$d; done
+RUN for d in cache lock; do chmod -R u=rwX,g=rX,o=rX /var/www/html/$d; done
 
 VOLUME /var/www/html/cache/feed-icons
